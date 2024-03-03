@@ -1,0 +1,50 @@
+# IBMTASKS
+# IMPORT DATA 
+
+
+
+srdta<-read.csv("politics.csv")
+
+# DATA EXPLORATION
+# FINDING SUMMA OF THE DATA
+# READING FIRST 5 ROWS IN THE DATA
+
+
+
+
+head(srdta)
+summary(srdta)
+str(srdta)
+
+#DATA PREPARATION
+# checking null values
+
+
+
+null<-is.na(srdta)
+print(null)
+
+#selecting votes column
+
+votes<-srdta$total_votes
+print(votes)
+names<-srdta$state
+
+# Reading state names
+print(names)
+
+# CREATING PIE CHARTS
+barplot(votes,main="votes in each state",col="red",border="blue")
+
+# selecting percentage column
+p<-srdta$percentage
+print(p)
+
+# CREATING BAR CHARTS
+per<-c(70,60,80,90,87,52,60,45,72,89,78,64)
+pie(per,main="percentage of voters in each state",names,cex=2,radius =1,percentages)
+pie(votes,
+    labels = paste(names, "\n", percentages, "%", sep = ""),
+    main = "Percentage of Total Votes by State",
+    col = rainbow(length(state)),
+    cex = 1,radius =1.08)
